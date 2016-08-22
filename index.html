@@ -12,7 +12,7 @@
 
           <script>
         $(function() {
-            setupLanguages(["bash","ruby","python"]);
+            setupLanguages(["cURL","C#","Java","Javascript","PHP"]);
         });
       </script>
       </head>
@@ -25,11 +25,13 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-        <img src="images/logo.png" />
+        <!--img src="images/logo.png" /-->
                     <div class="lang-selector">
-                                  <a href="#" data-language-name="bash">bash</a>
-                                  <a href="#" data-language-name="ruby">ruby</a>
-                                  <a href="#" data-language-name="python">python</a>
+                                  <a href="#" data-language-name="cURL">cURL</a>
+                                  <a href="#" data-language-name="C#">C#</a>
+                                  <a href="#" data-language-name="Java">Java</a>
+                                  <a href="#" data-language-name="Javascript">Javascript</a>
+                                  <a href="#" data-language-name="PHP">PHP</a>
                             </div>
                             <div class="search">
               <input type="text" class="search" id="input-search" placeholder="Search">
@@ -45,195 +47,287 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-          <h1>Introducci&oacute;n</h1>
+          <h1>API v0.1 Introducci&oacute;n</h1>
 <blockquote>
-<p>We are very pleased to announce that API v2 is no longer in beta. Thank you to everyone who helped report bugs and suggest features during the beta period. <br/><br/> <a href="http://example.com/developers">Read more on the blog...</a>.</p>
+<p>Estamos trabajando duro en crear un api increible. <br/><br/> <a href="https://github.com/Conectando/connect-my-school-api-docs">Encuentra el codigo funte aqui...</a>.</p>
 </blockquote>
-<p>La presente reforma educativa hace hincapié en la ​ autonomía de gestión con la finalidad de que las escuelas en México puedan enfocar sus recursos para dar atencióna las necesidades y al logro de los objetivos que planteados en su ruta crítica. </p>
-<p>Dar seguimiento puntual a estos objetivos es una tarea compleja ya que en el día a día,la resolución cotidiana de la vida escolar empuja a resolver los asuntos urgentes anteponiendose a los importantes, no se cuenta con herramientas que ayuden a sistematizar estos procesos que requieren de manejo de datos, toma de decisiones, intercambio de ideas, toma de acuerdos y seguimiento de acciones para el logro de objetivos. </p>
-<p>Al no tener un avance claro y difusión en el logro de los objetivos la comunidad educativa no tiene elementos que le permita autoevaluarse, valorar si hay indicadores que inciden en la calidad educativa y perciban que su escuela es un factor transformador en su comunidad.  </p><h1>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre><code class="language-ruby">require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')</code></pre>
-<pre><code class="language-python">import kittn
-
-api = kittn.authorize('meowmeowmeow')</code></pre>
-<pre><code class="language-bash"># With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-<p><code>Authorization: meowmeowmeow</code></p>
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1>Kittens</h1>
-<h2>Get All Kittens</h2>
-<pre><code class="language-ruby">require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get</code></pre>
-<pre><code class="language-python">import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()</code></pre>
-<pre><code class="language-bash">curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="language-json">[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]</code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3>Query Parameters</h3>
+<p>Bienvenido a la documentación oficial de &quot;Conectando Mi Escuela&quot; <br/> </p><h1>Niveles Educativos</h1>
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>id</td>
+<td>string (alphanumeric)</td>
+<td>Identificador universal para este nivel educativo</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>nombre</td>
+<td>string</td>
+<td>Nombre del nivel educativo</td>
+</tr>
+<tr>
+<td>descripcion</td>
+<td>string</td>
+<td>Descripción del nivel educativo</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
 </tr>
 </tbody>
-</table>
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2>Get a Specific Kitten</h2>
-<pre><code class="language-ruby">require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)</code></pre>
-<pre><code class="language-python">import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)</code></pre>
-<pre><code class="language-bash">curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="language-json">{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}</code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
-<h3>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3>URL Parameters</h3>
+</table><h1>Programas Educativos</h1>
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>id</td>
+<td>string (alphanumeric)</td>
+<td>Identificador universal para este programa educativo</td>
+</tr>
+<tr>
+<td>nombre</td>
+<td>string</td>
+<td>Nombre del programa educativo</td>
+</tr>
+<tr>
+<td>descripcion</td>
+<td>string</td>
+<td>Descripción del programa educativo</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
 </tr>
 </tbody>
-</table><h1>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Whiteboard allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-<p>The Kittn API uses the following error codes:</p>
+</table><h1>Académicos</h1>
 <table>
 <thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request sucks</td>
+<td>rfc</td>
+<td>string (alphanumeric)</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong</td>
+<td>nombre</td>
+<td>string</td>
+<td>Nombre del académico</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only</td>
+<td>telefono</td>
+<td>string</td>
+<td>Teléfono local del académico en formato internacional</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found</td>
+<td>celular</td>
+<td>string</td>
+<td>Teléfono celular del académico en formato internacional</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method</td>
+<td>correo</td>
+<td>string</td>
+<td>Correo electronico del académico</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn't json</td>
+<td>created_at</td>
+<td>string</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers</td>
+<td>updated_at</td>
+<td>string</td>
+</tr>
+</tbody>
+</table><h1>Escuelas</h1>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I'm a teapot</td>
+<td>nombre_ct</td>
+<td>string</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You're requesting too many kittens! Slow down!</td>
+<td>correo</td>
+<td>string</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>telefono</td>
+<td>string</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We're temporarially offline for maintanance. Please try again later.</td>
+<td>direccion</td>
+<td>nullable string</td>
+</tr>
+<tr>
+<td>colonia</td>
+<td>nullable string</td>
+</tr>
+<tr>
+<td>municipio</td>
+<td>nullable string</td>
+</tr>
+<tr>
+<td>localidad</td>
+<td>nullable string</td>
+</tr>
+<tr>
+<td>estado</td>
+<td>string</td>
+</tr>
+<tr>
+<td>calle_izquierda</td>
+<td>nullable string</td>
+</tr>
+<tr>
+<td>calle_derecha</td>
+<td>nullable string</td>
+</tr>
+<tr>
+<td>codigo_postal</td>
+<td>nullable number</td>
+</tr>
+<tr>
+<td>latitud</td>
+<td>double</td>
+</tr>
+<tr>
+<td>longitud</td>
+<td>double</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+</tr>
+</tbody>
+</table><h1>Detalles de Escuelas</h1>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>escuela_id</td>
+<td>number</td>
+</tr>
+<tr>
+<td>clave_ct</td>
+<td>string</td>
+</tr>
+<tr>
+<td>nivel_id</td>
+<td>number</td>
+</tr>
+<tr>
+<td>rfc_director</td>
+<td>nullable string</td>
+</tr>
+<tr>
+<td>programa_id</td>
+<td>number</td>
+</tr>
+<tr>
+<td>turno</td>
+<td>string</td>
+</tr>
+<tr>
+<td>zona</td>
+<td>string</td>
+</tr>
+<tr>
+<td>sostenimiento</td>
+<td>string</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+</tr>
+</tbody>
+</table><h1>Escuelas de Academicos</h1>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>detalle_escuela_id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>rfc_academico</td>
+<td>string</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
 </tr>
 </tbody>
 </table>
       </div>
       <div class="dark-box">
                         <div class="lang-selector">
-                                    <a href="#" data-language-name="bash">bash</a>
-                                    <a href="#" data-language-name="ruby">ruby</a>
-                                    <a href="#" data-language-name="python">python</a>
+                                    <a href="#" data-language-name="cURL">cURL</a>
+                                    <a href="#" data-language-name="C#">C#</a>
+                                    <a href="#" data-language-name="Java">Java</a>
+                                    <a href="#" data-language-name="Javascript">Javascript</a>
+                                    <a href="#" data-language-name="PHP">PHP</a>
                               </div>
                 </div>
     </div>

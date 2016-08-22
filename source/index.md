@@ -2,9 +2,11 @@
 title: Conectando Mi Escuela API
 
 language_tabs:
-  - bash
-  - ruby
-  - python
+  - cURL
+  - C#
+  - Java
+  - Javascript
+  - PHP
 
 toc_footers:
   - <a href='#'>Regístrese para obtener una clave de desarrollador</a>
@@ -12,7 +14,11 @@ toc_footers:
 
 includes:
   - introduction
-  - schools
-  - errors
+  - niveles
+  - programas
+  - academicos
+  - escuelas
+  - detalles_escuelas
+  - escuelas_academicos
 search: true
 ---
