@@ -12,7 +12,7 @@
 
           <script>
         $(function() {
-            setupLanguages(["cURL","C#","Java","Javascript","PHP"]);
+            setupLanguages(["cURL","CSharp","Java","Javascript","PHP"]);
         });
       </script>
       </head>
@@ -28,7 +28,7 @@
         <!--img src="images/logo.png" /-->
                     <div class="lang-selector">
                                   <a href="#" data-language-name="cURL">cURL</a>
-                                  <a href="#" data-language-name="C#">C#</a>
+                                  <a href="#" data-language-name="CSharp">CSharp</a>
                                   <a href="#" data-language-name="Java">Java</a>
                                   <a href="#" data-language-name="Javascript">Javascript</a>
                                   <a href="#" data-language-name="PHP">PHP</a>
@@ -47,11 +47,14 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-          <h1>API v0.1 Introducci&oacute;n</h1>
+          <h1>API v0.1 Introducción</h1>
 <blockquote>
 <p>Estamos trabajando duro en crear un api increible. <br/><br/> <a href="https://github.com/Conectando/connect-my-school-api-docs">Encuentra el codigo funte aqui...</a>.</p>
 </blockquote>
-<p>Bienvenido a la documentación oficial de &quot;Conectando Mi Escuela&quot; <br/> </p><h1>Niveles Educativos</h1>
+<p>Bienvenido a la documentación oficial de &quot;Conectando Mi Escuela&quot; <br/> </p>
+<h2>CORS Origin</h2>
+<pre><code class="language-cURL"></code></pre><h1>Académicos</h1>
+<p>Son los registros de los académicos que funge como directores y/ó maestros de los centros de trabajo.</p>
 <table>
 <thead>
 <tr>
@@ -63,75 +66,13 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>string (alphanumeric)</td>
-<td>Identificador universal para este nivel educativo</td>
+<td>number</td>
+<td>Identificador universal para este académico</td>
 </tr>
-<tr>
-<td>nombre</td>
-<td>string</td>
-<td>Nombre del nivel educativo</td>
-</tr>
-<tr>
-<td>descripcion</td>
-<td>string</td>
-<td>Descripción del nivel educativo</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td>string</td>
-</tr>
-<tr>
-<td>updated_at</td>
-<td>string</td>
-</tr>
-</tbody>
-</table><h1>Programas Educativos</h1>
-<table>
-<thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>string (alphanumeric)</td>
-<td>Identificador universal para este programa educativo</td>
-</tr>
-<tr>
-<td>nombre</td>
-<td>string</td>
-<td>Nombre del programa educativo</td>
-</tr>
-<tr>
-<td>descripcion</td>
-<td>string</td>
-<td>Descripción del programa educativo</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td>string</td>
-</tr>
-<tr>
-<td>updated_at</td>
-<td>string</td>
-</tr>
-</tbody>
-</table><h1>Académicos</h1>
-<table>
-<thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td>rfc</td>
 <td>string (alphanumeric)</td>
+<td>El Registro Federal de Contribuyentes (RFC) es una clave alfanumérica compuesta por 13 caracteres (para Personas Físicas) y es utilizada cuando un individuo ejerce actividades económicas por las cuales esté obligado a pagar impuestos.</td>
 </tr>
 <tr>
 <td>nombre</td>
@@ -139,30 +80,155 @@
 <td>Nombre del académico</td>
 </tr>
 <tr>
+<td>apaterno</td>
+<td>nullable string</td>
+<td>Apellido paterno del académico</td>
+</tr>
+<tr>
+<td>amaterno</td>
+<td>nullable string</td>
+<td>Apellido materno del académico</td>
+</tr>
+<tr>
 <td>telefono</td>
-<td>string</td>
+<td>nullable string</td>
 <td>Teléfono local del académico en formato internacional</td>
 </tr>
 <tr>
 <td>celular</td>
-<td>string</td>
+<td>nullable string</td>
 <td>Teléfono celular del académico en formato internacional</td>
 </tr>
 <tr>
 <td>correo</td>
-<td>string</td>
+<td>nullable string</td>
 <td>Correo electronico del académico</td>
 </tr>
 <tr>
 <td>created_at</td>
-<td>string</td>
+<td>timestamp</td>
+<td>Fecha de creación del registro</td>
 </tr>
 <tr>
 <td>updated_at</td>
-<td>string</td>
+<td>timestamp</td>
+<td>Fecha de ultima actualización del registro</td>
 </tr>
 </tbody>
-</table><h1>Escuelas</h1>
+</table>
+<h2>Lista de todos los académicos</h2>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<pre><code class="language-cURL">
+    curl -X GET "http://api.school.dev/v0.1/schools" 
+</code></pre>
+<pre><code class="language-CSharp">
+    var client = new RestClient("http://api.school.dev/v0.1/schools");
+    var request = new RestRequest(Method.GET);
+    request.AddHeader("Accept", "application/json");
+    IRestResponse response = client.Execute(request);
+</code></pre>
+<pre><code class="language-Java">
+    OkHttpClient client = new OkHttpClient();
+
+    Request request = new Request.Builder()
+        .url("http://api.school.dev/v0.1/schools")
+        .get()
+        .addHeader("Accept", "application/json")
+        .build();
+
+    Response response = client.newCall(request).execute();
+</code></pre>
+<pre><code class="language-Javascript">
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://api.school.dev/v0.1/schools",
+        "method": "GET",
+        "headers": {
+            "Accept": "application/json"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+</code></pre>
+<pre><code class="language-PHP">
+    &lt;?php
+
+        $request = new HttpRequest();
+        $request-&gt;setUrl('http://api.school.dev/v0.1/schools');
+        $request-&gt;setMethod(HTTP_METH_GET);
+
+        $request-&gt;setHeaders(array(
+          'Accept'-&gt; 'application/json'
+        ));
+
+        try {
+          $response = $request-&gt;send();
+
+          echo $response-&gt;getBody();
+        } catch (HttpException $ex) {
+          echo $ex;
+        }
+</code></pre>
+<blockquote>
+<p>Request Headers</p>
+</blockquote>
+<pre><code>
+    Accept: application/json
+</code></pre>
+<blockquote>
+<p>Response Headers</p>
+</blockquote>
+<pre><code>
+    Content-Type: application/json
+    Date: Sun, 28 Aug 2016 22:10:52 GMT
+    Host: api.school.dev
+    X-Powered-By: nginx
+    X-RateLimit-Limit: 60
+    X-RateLimit-Remaining: 59
+</code></pre>
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre><code class="language-json">
+    [
+        {
+            "id": 1,
+            "rfc": "0780903581928",
+            "nombre": "OLGA LILIA",
+            "apaterno": "GARCIA",
+            "amaterno": "LOPEZ",
+            "telefono": "+962500819124",
+            "celular": "+4434633253867",
+            "correo": "queenie71@rempel.com",
+            "created_at": "2016-08-28 06:36:45",
+            "updated_at": "2016-08-28 06:36:45"
+        },
+        ...
+    ]
+</code></pre><h1>Detalles de Escuelas</h1>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "escuela_id": 1,
+        "clave_ct": "14DJN0128O",
+        "nivel_id": 1,
+        "academico_id": 1,
+        "programa_id": 1,
+        "turno": "MATUTINO",
+        "correo": "olgalilly62@hotmail.com",
+        "telefono": "36080845",
+        "zona": 175,
+        "sector": 2,
+        "sotenimiento": "FEDERALIZADO",
+        "created_at": "2016-08-28 06:50:02",
+        "updated_at": "2016-08-28 06:50:02"
+    },
+]</code></pre>
 <table>
 <thead>
 <tr>
@@ -174,125 +240,218 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>string</td>
-</tr>
-<tr>
-<td>nombre_ct</td>
-<td>string</td>
-</tr>
-<tr>
-<td>correo</td>
-<td>string</td>
-</tr>
-<tr>
-<td>telefono</td>
-<td>string</td>
-</tr>
-<tr>
-<td>direccion</td>
-<td>nullable string</td>
-</tr>
-<tr>
-<td>colonia</td>
-<td>nullable string</td>
-</tr>
-<tr>
-<td>municipio</td>
-<td>nullable string</td>
-</tr>
-<tr>
-<td>localidad</td>
-<td>nullable string</td>
-</tr>
-<tr>
-<td>estado</td>
-<td>string</td>
-</tr>
-<tr>
-<td>calle_izquierda</td>
-<td>nullable string</td>
-</tr>
-<tr>
-<td>calle_derecha</td>
-<td>nullable string</td>
-</tr>
-<tr>
-<td>codigo_postal</td>
-<td>nullable number</td>
-</tr>
-<tr>
-<td>latitud</td>
-<td>double</td>
-</tr>
-<tr>
-<td>longitud</td>
-<td>double</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td>string</td>
-</tr>
-<tr>
-<td>updated_at</td>
-<td>string</td>
-</tr>
-</tbody>
-</table><h1>Detalles de Escuelas</h1>
-<table>
-<thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>string</td>
+<td>number</td>
+<td>Identificador universal para este detalle de escuela</td>
 </tr>
 <tr>
 <td>escuela_id</td>
 <td>number</td>
+<td>Identificador universal que hace referencia a una <a href="#escuelas">escuela</a></td>
 </tr>
 <tr>
 <td>clave_ct</td>
 <td>string</td>
+<td>Clave de centro de trabajo</td>
 </tr>
 <tr>
 <td>nivel_id</td>
 <td>number</td>
+<td>Identificador universal que hace referencia a un <a href="#niveles">nivel</a></td>
 </tr>
 <tr>
-<td>rfc_director</td>
-<td>nullable string</td>
+<td>academico_id</td>
+<td>nullable number</td>
+<td>Identificador universal que hace referencia a un <a href="#academicos">academico</a></td>
 </tr>
 <tr>
 <td>programa_id</td>
 <td>number</td>
+<td>Identificador universal que hace referencia a un <a href="#programas">programa</a></td>
 </tr>
 <tr>
 <td>turno</td>
 <td>string</td>
+<td>El tipo de <a href="#turno">turno</a></td>
+</tr>
+<tr>
+<td>correo</td>
+<td>nullable string</td>
+<td>Correo electrónico de este detalle de escuela</td>
+</tr>
+<tr>
+<td>telefono</td>
+<td>nullable string</td>
+<td>Telefono de este detalle de escuela</td>
 </tr>
 <tr>
 <td>zona</td>
-<td>string</td>
+<td>number</td>
+<td>Zona escolar a la que pertenece el centro de trabajo</td>
+</tr>
+<tr>
+<td>sector</td>
+<td>number</td>
+<td>Sector al que pertenece el centro de trabajo</td>
 </tr>
 <tr>
 <td>sostenimiento</td>
+<td>number</td>
+<td>Fuente de sostenimiento</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>timestamp</td>
+<td>Fecha de creación del registro</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>timestamp</td>
+<td>Fecha de ultima actualización del registro</td>
+</tr>
+</tbody>
+</table>
+<h2>Turno</h2>
+<table>
+<thead>
+<tr>
+<th>Turnos</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONTINUO (JORNADA AMPLIADA)</td>
+<td>Sin descripción</td>
+</tr>
+<tr>
+<td>CONTINUO (TIEMPO COMPLETO)</td>
+<td>Sin descripción</td>
+</tr>
+<tr>
+<td>DISCONTINUO</td>
+<td>Sin descripción</td>
+</tr>
+<tr>
+<td>MATUTINO</td>
+<td>Sin descripción</td>
+</tr>
+<tr>
+<td>NOCTURNO</td>
+<td>Sin descripción</td>
+</tr>
+<tr>
+<td>VESPERTINO</td>
+<td>Sin descripción</td>
+</tr>
+</tbody>
+</table><h1>Escuelas</h1>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "nombre_ct": "JUAN DE LA BARRERA",
+        "direccion": "ARQUIMEDES 723",
+        "colonia": "HERMOSA PROVINCIA",
+        "calle_derecha": "ESTEBAN ALATORRE",
+        "calle_izquierda": "AGRONOMOS",
+        "codigo_postal": 44770,
+        "municipio_inegi_id": 39,
+        "localidad_inegi_id": 1,
+        "estado": "JALISCO",
+        "latitud": 20.6708361,
+        "longitud": -103.2864634,
+        "created_at": "2016-08-28 06:41:54",
+        "updated_at": "2016-08-28 06:41:54"
+    },
+]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>Identificador universal para esta escuela</td>
+</tr>
+<tr>
+<td>nombre_ct</td>
 <td>string</td>
+<td>Nombre del centro de trabajo</td>
+</tr>
+<tr>
+<td>direccion</td>
+<td>string</td>
+<td>Dirección del centro de trabajo</td>
+</tr>
+<tr>
+<td>colonia</td>
+<td>string</td>
+<td>Colonia en la que se encuentra el centro de trabajo</td>
+</tr>
+<tr>
+<td>calle_derecha</td>
+<td>string</td>
+<td>Sin descripción</td>
+</tr>
+<tr>
+<td>calle_izquierda</td>
+<td>string</td>
+<td>Sin descripción</td>
+</tr>
+<tr>
+<td>codigo_postal</td>
+<td>number</td>
+<td>Código postal</td>
+</tr>
+<tr>
+<td>municipio_inegi_id</td>
+<td>number</td>
+<td>Identificador universal que hace referencia a un <a href="#municipio">municipio</a></td>
+</tr>
+<tr>
+<td>localidad_inegi_id</td>
+<td>number</td>
+<td>Identificador universal que hace referencia a una <a href="#localidad">localidad</a></td>
+</tr>
+<tr>
+<td>estado</td>
+<td>string</td>
+<td>Estado al que pertenece el centro de trabajo</td>
+</tr>
+<tr>
+<td>latitud</td>
+<td>double</td>
+<td>Latitud donde se encuentra el centro de trabajo</td>
+</tr>
+<tr>
+<td>longitud</td>
+<td>double</td>
+<td>Longitud donde se encuentra el centro de trabajo</td>
 </tr>
 <tr>
 <td>created_at</td>
 <td>string</td>
+<td>Fecha de creación del registro</td>
 </tr>
 <tr>
 <td>updated_at</td>
 <td>string</td>
+<td>Fecha de ultima actualización del registro</td>
 </tr>
 </tbody>
 </table><h1>Escuelas de Academicos</h1>
+<pre><code class="language-json">[
+    {
+        "detalle_escuela_id": 1,
+        "academico_id": 1,
+        "created_at": "2016-08-28 06:50:02",
+        "updated_at": "2016-08-28 06:50:02"
+    },
+]</code></pre>
 <table>
 <thead>
 <tr>
@@ -304,19 +463,179 @@
 <tbody>
 <tr>
 <td>detalle_escuela_id</td>
-<td>string</td>
+<td>number</td>
+<td>Identificador universal que hace referencia a un <a href="#detalles-de-escuelas">detalle de escuela</a></td>
 </tr>
 <tr>
-<td>rfc_academico</td>
-<td>string</td>
+<td>academico_id</td>
+<td>number</td>
+<td>Identificador universal que hace referencia a un <a href="#academicos">academico</a></td>
 </tr>
 <tr>
 <td>created_at</td>
 <td>string</td>
+<td>Fecha de creación del registro</td>
 </tr>
 <tr>
 <td>updated_at</td>
 <td>string</td>
+<td>Fecha de ultima actualización del registro</td>
+</tr>
+</tbody>
+</table><h1>Localidades Inegi</h1>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "nombre": "GUADALAJARA",
+        "created_at": "2016-08-28 01:25:32",
+        "updated_at": "2016-08-28 01:25:32"
+    }
+]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>Identificador universal para esta localidad</td>
+</tr>
+<tr>
+<td>nombre</td>
+<td>string</td>
+<td>Nombre de la localidad</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>Fecha de creación del registro</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+<td>Fecha de ultima actualización del registro</td>
+</tr>
+</tbody>
+</table><h1>Municipios Inegi</h1>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "nombre": "ACATIC",
+        "created_at": "2016-08-28 01:26:17",
+        "updated_at": "2016-08-28 01:26:17"
+    }   
+]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>Identificador universal para este municipio</td>
+</tr>
+<tr>
+<td>nombre</td>
+<td>string</td>
+<td>Nombre del municipio</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>Fecha de creación del registro</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+<td>Fecha de ultima actualización del registro</td>
+</tr>
+</tbody>
+</table><h1>Niveles Educativos</h1>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "nombre": "PREESCOLAR",
+        "created_at": "2016-08-28 01:25:02",
+        "updated_at": "2016-08-28 01:25:02"
+    }
+]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>Identificador universal para este nivel educativo</td>
+</tr>
+<tr>
+<td>nombre</td>
+<td>string</td>
+<td>Nombre del nivel educativo</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>Fecha de creación del registro</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+<td>Fecha de ultima actualización del registro</td>
+</tr>
+</tbody>
+</table><h1>Programas Educativos</h1>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "nombre": "GENERAL",
+        "created_at": "2016-08-28 01:25:02",
+        "updated_at": "2016-08-28 01:25:02"
+    }
+]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>Identificador universal para este programa educativo</td>
+</tr>
+<tr>
+<td>nombre</td>
+<td>string</td>
+<td>Nombre del programa educativo</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>Fecha de creación del registro</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+<td>Fecha de ultima actualización del registro</td>
 </tr>
 </tbody>
 </table>
@@ -324,7 +643,7 @@
       <div class="dark-box">
                         <div class="lang-selector">
                                     <a href="#" data-language-name="cURL">cURL</a>
-                                    <a href="#" data-language-name="C#">C#</a>
+                                    <a href="#" data-language-name="CSharp">CSharp</a>
                                     <a href="#" data-language-name="Java">Java</a>
                                     <a href="#" data-language-name="Javascript">Javascript</a>
                                     <a href="#" data-language-name="PHP">PHP</a>

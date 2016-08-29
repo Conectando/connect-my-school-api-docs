@@ -3,7 +3,7 @@ title: Conectando Mi Escuela API
 
 language_tabs:
   - cURL
-  - C#
+  - CSharp
   - Java
   - Javascript
   - PHP
@@ -14,11 +14,13 @@ toc_footers:
 
 includes:
   - introduction
+  - academicos
+  - detalles_escuelas
+  - escuelas
+  - escuelas_academicos
+  - localidades_inegi
+  - municipios_inegi
   - niveles
   - programas
-  - academicos
-  - escuelas
-  - detalles_escuelas
-  - escuelas_academicos
 search: true
 ---

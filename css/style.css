@@ -922,8 +922,8 @@ body {
 .content table td {
   padding: 10px;
 }
-.content table tr:last-child {
-  border-bottom: 1px solid #ccc;
+.content table tr {
+  border: 1px solid #ccc;
 }
 .content table tr:nth-child(odd) > td {
   background-color: #fff;
