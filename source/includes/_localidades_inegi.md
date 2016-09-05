@@ -1,19 +1,59 @@
 # Localidades Inegi
 
-```json
-[
-	{
-		"id": 1,
-		"nombre": "GUADALAJARA",
-		"created_at": "2016-08-28 01:25:32",
-		"updated_at": "2016-08-28 01:25:32"
-	}
-]
-```
-
  Nombre    | Tipo    | Descripción
 ---------- | ------- | -------
  id | number | Identificador universal para esta localidad
  nombre | string | Nombre de la localidad 
- created_at | string | Fecha de creación del registro
- updated_at | string | Fecha de ultima actualización del registro
+
+## Lista todas las localidades
+
+```json
+	
+	{
+	    "data": [
+	        {
+	            "id": 1,
+	            "name": "GUADALAJARA",
+	            "links": [
+	                {
+	                    "rel": "self",
+	                    "href": "/api/v0.1/inegi/locations/1"
+	                }
+	            ]
+	        },
+	        ...
+	    ],
+	    "meta": {
+	        "pagination": {
+	            "total": 501,
+	            "count": 15,
+	            "per_page": 15,
+	            "current_page": 1,
+	            "total_pages": 34,
+	            "links": {
+	                "next": "/api/v0.1/inegi/locations?page=2"
+	            }
+	        }
+	    }
+	}
+
+```
+
+## Recuperar una localidad
+
+```json
+	
+	{
+	    "data": {
+	        "id": 1,
+	        "name": "GUADALAJARA",
+	        "links": [
+	            {
+	                "rel": "self",
+	                "href": "/api/v0.1/inegi/locations/1"
+	            }
+	        ]
+	    }
+	}
+
+```

@@ -15,12 +15,13 @@ toc_footers:
 includes:
   - introduction
   - academicos
-  - detalles_escuelas
-  - escuelas
-  - escuelas_academicos
-  - localidades_inegi
-  - municipios_inegi
   - niveles
   - programas
+  - localidades_inegi
+  - municipios_inegi
+  - escuelas
+  - detalles_escuelas
+  - indicadores
+  - estadisticas
 search: true
 ---

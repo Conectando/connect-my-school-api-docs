@@ -1,42 +1,15 @@
-# Detalles de Escuelas
-
-```json
-[
-	{
-	    "id": 1,
-	    "escuela_id": 1,
-	    "clave_ct": "14DJN0128O",
-	    "nivel_id": 1,
-	    "academico_id": 1,
-	    "programa_id": 1,
-	    "turno": "MATUTINO",
-	    "correo": "olgalilly62@hotmail.com",
-	    "telefono": "36080845",
-	    "zona": 175,
-	    "sector": 2,
-	    "sotenimiento": "FEDERALIZADO",
-	    "created_at": "2016-08-28 06:50:02",
-	    "updated_at": "2016-08-28 06:50:02"
-	},
-]
-```
+# Detalles de Escuela
 
  Nombre    | Tipo    | Descripción
 ---------- | ------- | -----------
  id | number  | Identificador universal para este detalle de escuela
- escuela_id | number | Identificador universal que hace referencia a una [escuela](#escuelas)
- clave_ct | string | Clave de centro de trabajo
- nivel_id | number | Identificador universal que hace referencia a un [nivel](#niveles)
- academico_id | nullable number | Identificador universal que hace referencia a un [academico](#academicos) 
- programa_id | number | Identificador universal que hace referencia a un [programa](#programas) 
- turno | string | El tipo de [turno](#turno)
- correo | nullable string | Correo electrónico de este detalle de escuela
- telefono | nullable string | Telefono de este detalle de escuela 
- zona | number | Zona escolar a la que pertenece el centro de trabajo
+ key | string | Clave de centro de trabajo
+ turn | string | El tipo de [turno](#turno)
+ email | nullable string | Correo electrónico de este detalle de escuela
+ telephone | nullable string | Telefono de este detalle de escuela 
+ zone | number | Zona escolar a la que pertenece el centro de trabajo
  sector | number | Sector al que pertenece el centro de trabajo
- sostenimiento | number | Fuente de sostenimiento
- created_at | timestamp | Fecha de creación del registro
- updated_at | timestamp | Fecha de ultima actualización del registro
+ sustenance | number | Fuente de sostenimiento
 
  ## Turno
 
@@ -48,3 +21,82 @@
  MATUTINO | Sin descripción
  NOCTURNO | Sin descripción
  VESPERTINO | Sin descripción
+
+## Lista todos los detalles de una escuela
+
+```json
+
+	{
+	    "data": [
+	        {
+	            "id": 1,
+	            "key": "14DJN0128O",
+	            "turn": "MATUTINO",
+	            "email": "olgalilly62@hotmail.com",
+	            "telephone": "36080845",
+	            "zone": 175,
+	            "sector": 2,
+	            "sustenance": "FEDERALIZADO",
+	            "links": [
+	                {
+	                    "rel": "self",
+	                    "href": "/api/v0.1/schools/1/details/1"
+	                },
+	                {
+	                    "rel": "indicators",
+	                    "href": "/api/v0.1/schools/1/details/1/indicators"
+	                },
+	                {
+	                    "rel": "statistics",
+	                    "href": "/api/v0.1/schools/1/details/1/statistics"
+	                },
+	                {
+	                    "rel": "teachers",
+	                    "href": "/api/v0.1/schools/1/details/1/teachers"
+	                }
+	            ]
+	        },
+	        ...
+	    ]
+	}
+
+```
+
+## Recupera un detalle de una escuela
+
+```json
+
+	{
+	    "data": [
+	        {
+	            "id": 1,
+	            "key": "14DJN0128O",
+	            "turn": "MATUTINO",
+	            "email": "olgalilly62@hotmail.com",
+	            "telephone": "36080845",
+	            "zone": 175,
+	            "sector": 2,
+	            "sustenance": "FEDERALIZADO",
+	            "links": [
+	                {
+	                    "rel": "self",
+	                    "href": "/api/v0.1/schools/1/details/1"
+	                },
+	                {
+	                    "rel": "indicators",
+	                    "href": "/api/v0.1/schools/1/details/1/indicators"
+	                },
+	                {
+	                    "rel": "statistics",
+	                    "href": "/api/v0.1/schools/1/details/1/statistics"
+	                },
+	                {
+	                    "rel": "teachers",
+	                    "href": "/api/v0.1/schools/1/details/1/teachers"
+	                }
+	            ]
+	        }
+	    ]
+	}
+
+```

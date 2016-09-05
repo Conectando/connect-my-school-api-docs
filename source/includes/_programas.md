@@ -1,19 +1,57 @@
 # Programas Educativos
 
-```json
-[
- 	{
-		"id": 1,
-		"nombre": "GENERAL",
-		"created_at": "2016-08-28 01:25:02",
-		"updated_at": "2016-08-28 01:25:02"
-	}
-]
-```
-
  Nombre    | Tipo    | Descripción
 ---------- | ------- | -------
  id | number | Identificador universal para este programa educativo
  nombre | string | Nombre del programa educativo
- created_at | string | Fecha de creación del registro
- updated_at | string | Fecha de ultima actualización del registro
+
+## Lista todos los programas educativos
+
+```json
+	
+	{
+	    "data": [
+	        {
+	            "id": 1,
+	            "name": "GENERAL",
+	            "links": [
+	                {
+	                    "rel": "self",
+	                    "href": "/api/v0.1/educational/programs/1"
+	                }
+	            ]
+	        },
+			...
+	    ],
+	    "meta": {
+	        "pagination": {
+	            "total": 10,
+	            "count": 10,
+	            "per_page": 15,
+	            "current_page": 1,
+	            "total_pages": 1,
+	            "links": []
+	        }
+	    }
+	}
+
+```
+
+## Recuperar un programa educativo
+
+```json
+	
+	{
+	    "data": {
+	        "id": 1,
+	        "name": "GENERAL",
+	        "links": [
+	            {
+	                "rel": "self",
+	                "href": "/api/v0.1/educational/programs/1"
+	            }
+	        ]
+	    }
+	}
+
+```

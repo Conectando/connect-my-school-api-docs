@@ -6,14 +6,12 @@ Son los registros de los académicos que funge como directores y/ó maestros de 
 ---------- | ------- | -------
  id | number | Identificador universal para este académico
  rfc | string (alphanumeric) | El Registro Federal de Contribuyentes (RFC) es una clave alfanumérica compuesta por 13 caracteres (para Personas Físicas) y es utilizada cuando un individuo ejerce actividades económicas por las cuales esté obligado a pagar impuestos.
- nombre | string | Nombre del académico
- apaterno | nullable string | Apellido paterno del académico
- amaterno | nullable string | Apellido materno del académico
- telefono | nullable string | Teléfono local del académico en formato internacional
- celular | nullable string | Teléfono celular del académico en formato internacional
- correo | nullable string | Correo electronico del académico
- created_at | timestamp | Fecha de creación del registro
- updated_at | timestamp | Fecha de ultima actualización del registro
+ name | string | Nombre del académico
+ last_name | nullable string | Apellido paterno del académico
+ second_last_name | nullable string | Apellido materno del académico
+ email | nullable string | Correo electronico del académico
+ telephone | nullable string | Teléfono local del académico en formato internacional
+ mobile_phone | nullable string | Teléfono celular del académico en formato internacional
 
 ## Lista de todos los académicos
 
@@ -101,11 +99,7 @@ Son los registros de los académicos que funge como directores y/ó maestros de 
 ```
 
 	Content-Type: application/json
-	Date: Sun, 28 Aug 2016 22:10:52 GMT
-	Host: api.school.dev
-	X-Powered-By: nginx
-	X-RateLimit-Limit: 60
-	X-RateLimit-Remaining: 59
+	Cache-Control: no-cache
 
 ```
 
@@ -113,20 +107,63 @@ Son los registros de los académicos que funge como directores y/ó maestros de 
 
  ```json
 
-	[
-		{
-			"id": 1,
-			"rfc": "0780903581928",
-		    "nombre": "OLGA LILIA",
-		    "apaterno": "GARCIA",
-		    "amaterno": "LOPEZ",
-		    "telefono": "+962500819124",
-		    "celular": "+4434633253867",
-		    "correo": "queenie71@rempel.com",
-		    "created_at": "2016-08-28 06:36:45",
-		    "updated_at": "2016-08-28 06:36:45"
-		},
-		...
-	]
+	{
+	    "data": [
+	        {
+	            "id": 1,
+	            "rfc": "4947768972322",
+	            "name": "OLGA LILIA GARCIA LOPEZ",
+	            "last_name": "",
+	            "second_last_name": "",
+	            "email": "senger.harley@fisher.com",
+	            "telephone": "+555607305330",
+	            "mobile_phone": "+7941435492013",
+	            "links": [
+	                {
+	                    "rel": "self",
+	                    "href": "/api/v0.1/academics/1"
+	                }
+	            ]
+	        },
+	        ...
+	    ],
+	    "meta": {
+	        "pagination": {
+	            "total": 10520,
+	            "count": 15,
+	            "per_page": 15,
+	            "current_page": 1,
+	            "total_pages": 702,
+	            "links": {
+	                "next": "/api/v0.1/academics?page=2"
+	            }
+	        }
+	    }
+	}
+
+```
+
+## Recuperar un académico
+
+```json
+
+	{
+	    "data": {
+	        "id": 15,
+	        "rfc": "3476063976762",
+	        "name": "EVANGELINA ANGEL GARCIA",
+	        "last_name": "",
+	        "second_last_name": "",
+	        "email": "aleen.koch@hotmail.com",
+	        "telephone": "+081406626455",
+	        "mobile_phone": "+0801413950168",
+	        "links": [
+	            {
+	                "rel": "self",
+	                "href": "/api/v0.1/academics/15"
+	            }
+	        ]
+	    }
+	}
 
 ```

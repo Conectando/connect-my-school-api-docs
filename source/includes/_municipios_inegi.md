@@ -1,19 +1,58 @@
 # Municipios Inegi
 
-```json
-[
-	{
-		"id": 1,
-		"nombre": "ACATIC",
-		"created_at": "2016-08-28 01:26:17",
-		"updated_at": "2016-08-28 01:26:17"
-	}	
-]
-```
-
  Nombre    | Tipo    | Descripción
 ---------- | ------- | -------
  id | number | Identificador universal para este municipio
  nombre | string | Nombre del municipio 
- created_at | string | Fecha de creación del registro
- updated_at | string | Fecha de ultima actualización del registro
+
+## Lista todos los municipios
+
+```json
+	
+	{
+	    "data": [
+	        {
+	            "id": 1,
+	            "name": "ACATIC",
+	            "links": [
+	                {
+	                    "rel": "self",
+	                    "href": "/api/v0.1/inegi/municipalities/1"
+	                }
+	            ]
+	        },
+	        ...
+	    ],
+	    "meta": {
+	        "pagination": {
+	            "total": 125,
+	            "count": 15,
+	            "per_page": 15,
+	            "current_page": 1,
+	            "total_pages": 9,
+	            "links": {
+	                "next": "/api/v0.1/inegi/municipalities?page=2"
+	            }
+	        }
+	    }
+	}
+```
+
+## Recuperar un municipio
+
+```json
+	
+	{
+	    "data": {
+	        "id": 1,
+	        "name": "ACATIC",
+	        "links": [
+	            {
+	                "rel": "self",
+	                "href": "/api/v0.1/inegi/municipalities/1"
+	            }
+	        ]
+	    }
+	}
+
+```
