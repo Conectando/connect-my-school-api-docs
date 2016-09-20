@@ -1,13 +1,5 @@
 # Indicadores
 
- Nombre     | Tipo   | Descripción
------------ | ------ | ------------
-desercion   | double | Porsentaje de deserción
-reprobacion | object | Porsentajes de reprobación
-eficiencia  | double | Porsentaje de eficiencia
-
-## Recupera un indicador
-
 ```json
 
 	{
@@ -30,3 +22,16 @@ eficiencia  | double | Porsentaje de eficiencia
 	}
 
 ```
+
+ Nombre     | Tipo   | Descripción
+----------- | ------ | ------------
+desercion   | double | Porsentaje de deserción
+reprobacion | object | Porsentajes de reprobación
+eficiencia  | double | Porsentaje de eficiencia
+
+## reprobacion (object)
+
+ Nombre         | Tipo   | Descripción
+--------------- | ------ | ------------
+ ordinaria      | double | Porsentaje alumnos reprobados en periodo ordinario
+ regularizados  | double | Porsentaje alumnos reprobados tras una regularización

@@ -1,12 +1,5 @@
 # Programas Educativos
 
- Nombre    | Tipo    | Descripción
----------- | ------- | -------
- id | number | Identificador universal para este programa educativo
- nombre | string | Nombre del programa educativo
-
-## Lista todos los programas educativos
-
 ```json
 	
 	{
@@ -36,6 +29,11 @@
 	}
 
 ```
+
+ Nombre    | Tipo    | Descripción
+---------- | ------- | -------
+ id | number | Identificador universal para este programa educativo
+ nombre | string | Nombre del programa educativo
 
 ## Recuperar un programa educativo
 

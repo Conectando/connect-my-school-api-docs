@@ -1,20 +1,5 @@
 # Académicos
 
-Son los registros de los académicos que funge como directores y/ó maestros de los centros de trabajo.
-
- Nombre    | Tipo    | Descripción
----------- | ------- | -------
- id | number | Identificador universal para este académico
- rfc | string (alphanumeric) | El Registro Federal de Contribuyentes (RFC) es una clave alfanumérica compuesta por 13 caracteres (para Personas Físicas) y es utilizada cuando un individuo ejerce actividades económicas por las cuales esté obligado a pagar impuestos.
- name | string | Nombre del académico
- last_name | nullable string | Apellido paterno del académico
- second_last_name | nullable string | Apellido materno del académico
- email | nullable string | Correo electronico del académico
- telephone | nullable string | Teléfono local del académico en formato internacional
- mobile_phone | nullable string | Teléfono celular del académico en formato internacional
-
-## Lista de todos los académicos
-
 > Ejemplo
 
 ```cURL
@@ -99,7 +84,6 @@ Son los registros de los académicos que funge como directores y/ó maestros de 
 ```
 
 	Content-Type: application/json
-	Cache-Control: no-cache
 
 ```
 
@@ -111,29 +95,26 @@ Son los registros de los académicos que funge como directores y/ó maestros de 
 	    "data": [
 	        {
 	            "id": 1,
-	            "rfc": "4947768972322",
+	            "rfc": "4666468869335",
 	            "name": "OLGA LILIA GARCIA LOPEZ",
 	            "last_name": "",
 	            "second_last_name": "",
-	            "email": "senger.harley@fisher.com",
-	            "telephone": "+555607305330",
-	            "mobile_phone": "+7941435492013",
-	            "links": [
-	                {
-	                    "rel": "self",
-	                    "href": "/api/v0.1/academics/1"
-	                }
-	            ]
+	            "email": "giovani51@gmail.com",
+	            "telephone": "+205618421578",
+	            "mobile_phone": "+8449985841798",
+	            "links": {
+	                "self": "/api/v0.1/academics/1"
+	            }
 	        },
 	        ...
 	    ],
 	    "meta": {
 	        "pagination": {
 	            "total": 10520,
-	            "count": 15,
-	            "per_page": 15,
+	            "count": 30,
+	            "per_page": 30,
 	            "current_page": 1,
-	            "total_pages": 702,
+	            "total_pages": 351,
 	            "links": {
 	                "next": "/api/v0.1/academics?page=2"
 	            }
@@ -143,26 +124,36 @@ Son los registros de los académicos que funge como directores y/ó maestros de 
 
 ```
 
+Son los registros de los académicos que funge como directores y/ó maestros de los centros de trabajo.
+
+ Nombre    | Tipo    | Descripción
+---------- | ------- | -------
+ id | number | Identificador universal para este académico
+ rfc | string (alphanumeric) | El Registro Federal de Contribuyentes (RFC) es una clave alfanumérica compuesta por 13 caracteres (para Personas Físicas) y es utilizada cuando un individuo ejerce actividades económicas por las cuales esté obligado a pagar impuestos.
+ name | string | Nombre del académico
+ last_name | nullable string | Apellido paterno del académico
+ second_last_name | nullable string | Apellido materno del académico
+ email | nullable string | Correo electronico del académico
+ telephone | nullable string | Teléfono local del académico en formato internacional
+ mobile_phone | nullable string | Teléfono celular del académico en formato internacional
+
 ## Recuperar un académico
 
 ```json
 
 	{
 	    "data": {
-	        "id": 15,
-	        "rfc": "3476063976762",
-	        "name": "EVANGELINA ANGEL GARCIA",
+	        "id": 1,
+	        "rfc": "4666468869335",
+	        "name": "OLGA LILIA GARCIA LOPEZ",
 	        "last_name": "",
 	        "second_last_name": "",
-	        "email": "aleen.koch@hotmail.com",
-	        "telephone": "+081406626455",
-	        "mobile_phone": "+0801413950168",
-	        "links": [
-	            {
-	                "rel": "self",
-	                "href": "/api/v0.1/academics/15"
-	            }
-	        ]
+	        "email": "giovani51@gmail.com",
+	        "telephone": "+205618421578",
+	        "mobile_phone": "+8449985841798",
+	        "links": {
+	            "self": "/api/v0.1/academics/1"
+	        }
 	    }
 	}
 

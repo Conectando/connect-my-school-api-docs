@@ -1,12 +1,5 @@
 # Municipios Inegi
 
- Nombre    | Tipo    | Descripción
----------- | ------- | -------
- id | number | Identificador universal para este municipio
- nombre | string | Nombre del municipio 
-
-## Lista todos los municipios
-
 ```json
 	
 	{
@@ -37,6 +30,11 @@
 	    }
 	}
 ```
+
+ Nombre    | Tipo    | Descripción
+---------- | ------- | -------
+ id | number | Identificador universal para este municipio
+ nombre | string | Nombre del municipio 
 
 ## Recuperar un municipio
 

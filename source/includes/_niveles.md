@@ -1,12 +1,5 @@
 # Niveles Educativos
 
- Nombre    | Tipo    | Descripción
----------- | ------- | -------
- id | number | Identificador universal para este nivel educativo
- nombre | string | Nombre del nivel educativo
-
-## Lista todos los niveles educativos
-
 ```json
 	
 	{
@@ -36,6 +29,11 @@
 	}
 
 ```
+
+ Nombre    | Tipo    | Descripción
+---------- | ------- | -------
+ id | number | Identificador universal para este nivel educativo
+ nombre | string | Nombre del nivel educativo
 
 ## Recuperar un nivel educativo
 

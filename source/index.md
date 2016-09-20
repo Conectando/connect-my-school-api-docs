@@ -1,5 +1,5 @@
 ---
-title: Conectando Mi Escuela API
+title: Mi Escuela - API
 
 language_tabs:
   - cURL
@@ -23,5 +23,6 @@ includes:
   - detalles_escuelas
   - indicadores
   - estadisticas
+  - planea
 search: true
 ---

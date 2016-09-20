@@ -1,12 +1,5 @@
 # Localidades Inegi
 
- Nombre    | Tipo    | Descripción
----------- | ------- | -------
- id | number | Identificador universal para esta localidad
- nombre | string | Nombre de la localidad 
-
-## Lista todas las localidades
-
 ```json
 	
 	{
@@ -38,6 +31,11 @@
 	}
 
 ```
+
+ Nombre    | Tipo    | Descripción
+---------- | ------- | -------
+ id | number | Identificador universal para esta localidad
+ nombre | string | Nombre de la localidad 
 
 ## Recuperar una localidad
 
