@@ -29,24 +29,61 @@ Bienvenido a la documentación oficial de "Conectando Mi Escuela" <br/>
 
 ## Response
 
+> Response de un unico objeto
+
+```json
+
+	{
+		"data": {
+			"id": 6567,
+			"name": "Cristian Jaramillo"
+			...
+		}
+	}
+
+```
+
+> Response de una collección de objetos
+
+```json
+
+	{
+		"data": [
+			{
+				"id": 6567,
+				"name": "Cristian Jaramillo"
+				...
+			},
+			{
+				"id": 6787,
+				"name": "Mitztli Melgoza"
+				...
+			}
+		]
+	}
+
+```
+
 ## Meta
 
 > Ejemplo de meta
 
 ```json
-
-	"meta": {
-		"pagination": {
-	    	"total": 12324,
-	    	"count": 30,
-	    	"per_page": 30,
-	    	"current_page": 1,
-	    	"total_pages": 411,
-	    	"links": {
-	    		"next": "http://104.131.140.61/api/v0.1/schools?page=2"
-	    	}
-	    }
-	}
+	
+	{
+		"meta": {
+			"pagination": {
+		    	"total": 12324,
+		    	"count": 30,
+		    	"per_page": 30,
+		    	"current_page": 1,
+		    	"total_pages": 411,
+		    	"links": {
+		    		"next": "/api/v0.1/schools?page=2"
+		    	}
+		    }
+		}
+	}	
 
 ```
 
@@ -76,14 +113,23 @@ Bienvenido a la documentación oficial de "Conectando Mi Escuela" <br/>
 
 ## Rate Limit
 
-> Ejemplo Curl
+> Ejemplo de RateLimit Headers
 
-```curl
+```
 
 	X-RateLimit-Limit: 60
 	X-RateLimit-Remaining: 58
+	X-RateLimit-Reset: 678672
 
 ``` 
+
+> Ejemplo de respuesta al superar RateLimit
+
+```
+
+	Too Many Requests
+
+```
 
 ## Ejemplo Curl
 
